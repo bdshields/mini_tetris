@@ -10,15 +10,11 @@
 
 #include <stdint.h>
 
-#include "o_allocator.h"
 #include "os_event.h"
 
 #define MSG_QUEUE_MAX   3
 
-typedef struct os_msg_s{
-    o_base_obj_t super;
-    event_t      event;
-}os_msg_t;
+typedef os_event_t os_msg_t;
 
 typedef void* thread_t;
 typedef void* msg_queue_p;

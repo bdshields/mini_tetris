@@ -23,7 +23,7 @@ void isr_adc(void)
         event->super.event = E_STICK_UPDATE;
         event->x = (int16_t)ADC12MEM14 - 0x07FF;
         event->y = (int16_t)ADC12MEM15 - 0x07FF;
-        msg_send(blink_thread,(os_msg_p)event);
+      //  msg_send(blink_thread,(os_msg_p)event);
     }
 
     ADC12IFG = 0;

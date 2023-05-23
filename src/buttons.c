@@ -13,7 +13,7 @@
 
 #include "timer.h"
 
-extern thread_t blink_thread;
+//extern thread_t blink_thread;
 
 os_msg_p   button_messages[10];
 
@@ -40,7 +40,7 @@ void button_task(void* context)
             }
             if(assert_counter == 3)
             {
-                msg_send(blink_thread, &message);
+        //        msg_send(blink_thread, &message);
             }
             timer_set(TIMER_ms(10));
             break;
