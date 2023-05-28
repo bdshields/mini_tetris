@@ -12,6 +12,7 @@
 
 
 #include "button_tests.h"
+#include "game_tetris.h"
 #include "display.h"
 
 void __attribute__ ((noinline)) delay(uint32_t delay)
@@ -34,10 +35,13 @@ int main(void)
     scheduler_init();
     timerInit();
 
-    buttons_init();
+    disp_init();
     stick_init();
+    buttons_init();
 
-    button_test_init();
+//    button_test_init();
+    tetris_init();
+
 
     while(1)
     {

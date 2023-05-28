@@ -8,6 +8,7 @@
 #include "active_objects.h"
 
 #include "timer.h"
+#include "buttons.h"
 
 
 typedef struct button_ao_s{
@@ -37,23 +38,18 @@ fsm_status_t button_test_active(button_ao_t *me, os_event_t *event)
     case E_STATE_ENTER:
         me->delay_index = 0;
         me->led_start = 5;
-        disp_init();
+        buttons_request();
 
         me->delay = delays[me->delay_index];
         timer_set(me->delay);
         status = EVENT_HANDLED;
         break;
+    case E_STATE_EXIT:
+        buttons_cancel();
+        status = EVENT_HANDLED;
+        break;
     case E_TIMER:
         P6OUT ^= 0x01;
-        disp_blank();
-
-        disp_pixel_linear(me->led_start);
-
-        me->led_start ++;
-        if (me->led_start > 128)
-        {
-            me->led_start = 0;
-        }
         timer_set(me->delay);
         status = EVENT_HANDLED;
         break;

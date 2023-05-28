@@ -29,6 +29,6 @@ void fsm_enter_initial_state(fsm_t *me);
 void fsm_dispatch(fsm_t *me, os_event_t *event);
 
 // Macro to set new state, AND provide a return status of STATE_CHANGED
-#define FSM_TRANS(_new_state) {me->current_state = _new_state, STATE_CHANGED}
+#define FSM_TRANS(_new_state) (((fsm_t*)me)->current_state = _new_state, STATE_CHANGED)
 
 #endif /* SRC_FSM_H_ */
