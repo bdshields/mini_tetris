@@ -54,11 +54,11 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1916206376.1265690224" name="timer.c" rcbsApplicability="disable" resourcePath="src/timer.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1424153640.1123935630">
-						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1424153640.1123935630" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1424153640"/>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1916206376.197423575" name="button_test.c" rcbsApplicability="disable" resourcePath="src/button_test.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.1424153640.2146915405">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1424153640.2146915405" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1424153640"/>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="src/message.c|src/button_test.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/message.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

@@ -34,5 +34,5 @@ void fsm_cons(fsm_t *me, state_handler initial_state)
 void fsm_enter_initial_state(fsm_t *me)
 {
     static os_event_t const ev_enter = {.event = E_STATE_ENTER};
-    me->current_state(me, &ev_enter);
+    fsm_dispatch(me, &ev_enter);
 }

@@ -8,21 +8,12 @@
 
 #include "buttons.h"
 #include "os_msg.h"
-
+#include "evt_subscribe.h"
 #include "os_scheduler.h"
 
 #include "timer.h"
 
-typedef struct button_evt_s{
-    thread_t thread;
-}button_evt_t;
-
-#define BUTTON_MAX 2
-
-button_evt_t button_list[BUTTON_MAX];
-int         buttons_active;              // Number of active timers
-
-//extern thread_t blink_thread;
+DECLARE_EVT_SUB(button_requests, 2);
 
 os_msg_p   button_messages[10];
 
@@ -61,48 +52,22 @@ void button_task(void* context)
 uint16_t button_stack[100];
 void buttons_init(void)
 {
+    evt_sub_init(&button_requests);
     sched_thread_start(button_task, NULL, button_stack, 100);
 }
 
 void buttons_send_event()
 {
     static os_msg_t message = {.event=E_BUTTON};
-    int counter;
-    for(counter = 0; counter< BUTTON_MAX; counter++)
-    {
-        if(button_list[counter].thread != 0)
-        {
-            msg_send(button_list[counter].thread, &message);
-        }
-    }
-
+    evt_send(&button_requests, &message);
 }
 
-__attribute__((critical))
 void buttons_request(void)
 {
-    int counter;
-    for(counter = 0; counter< BUTTON_MAX; counter++)
-    {
-        if(button_list[counter].thread == 0)
-        {
-            button_list[counter].thread = os_get_active_thread();
-            return;
-        }
-    }
+    evt_subscribe(&button_requests);
 }
 
-__attribute__((critical))
 void buttons_cancel(void)
 {
-    int counter;
-    thread_t cur_thread= os_get_active_thread();
-    for(counter = 0; counter< BUTTON_MAX; counter++)
-    {
-        if(button_list[counter].thread == cur_thread)
-        {
-            button_list[counter].thread = 0;
-            return;
-        }
-    }
+    evt_unsubscribe(&button_requests);
 }

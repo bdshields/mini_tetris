@@ -17,4 +17,6 @@ typedef struct sprite_s{
 }sprite_t;
 
 
+//#define _S(_0,_1,_2,_3,_4,_5,_6,_7) (|||||||||||_0<<)
+
 #endif /* SRC_SPRITE_H_ */
