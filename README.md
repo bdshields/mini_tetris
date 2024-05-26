@@ -44,11 +44,11 @@
 
 # Port Usage
 
-| Port | Usage |
-|------|-------|
+|  Port |  Usage  |
+| ------ | ------- |
 | 1    | Row 1 - 8 |
-| 2    | Buttons   |
-| 3    | Columns   |
+| 2    | Columns   |
+| 3    |           |
 | 4    |           |
 | 5    | Row 9 - 16 |
 | 6    | Joystick  |
@@ -64,9 +64,20 @@ The DMA feature of the uC will be used to generate the display raster
 3 DMA channels are used
 
  * PORT 1   -  R1 ... R8
- * PORT 3   -  C1 ... C8
+ * PORT 2   -  C1 ... C8
  * PORT 5   -  R9 ...R16
 
 
+# E-Paper
 
+| Epaper | cpu        |
+| ------ | ---        |
+| busy   | P3.7 GPIO 
+| rst    | P3.6 GPIO
+| dc     | P3.2 GPIO
+| cs     | P3.0 GPIO
+| clk    | P3.3 Clk
+| din    | P3.1 SIMO
+| gnd    |
+| vcc    |
 

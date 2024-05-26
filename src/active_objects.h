@@ -13,7 +13,7 @@
 #include "os_msg.h"
 
 #define AO_MSG_SIZE 10
-#define AO_STACK_SIZE 100
+#define AO_STACK_SIZE 300
 
 typedef struct ao_s{
     fsm_t    super;
@@ -25,5 +25,6 @@ typedef struct ao_s{
 
 void ao_cons(ao_t *me, state_handler initial_state);
 
+thread_t ao_getTask(ao_t *me);
 
 #endif /* SRC_ACTIVE_OBJECTS_H_ */

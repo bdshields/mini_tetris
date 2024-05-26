@@ -10,6 +10,7 @@
 #include "timer.h"
 #include "buttons.h"
 #include "analog_stick.h"
+#include "scoreboard.h"
 
 #include "display.h"
 
@@ -459,6 +460,7 @@ fsm_status_t tetris_state_colapsing(tetris_ao_t *me, os_event_t *event)
                     if(me->deleted_rows[index] == src_cntr)
                     {
                         // delete row src_cntr
+                        sb_adjust_score(1);
                         goto skip_row;
                     }
                 }

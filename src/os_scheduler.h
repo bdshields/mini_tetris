@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <msp430.h>
 
-#define SCHED_THREADS_MAX   3
+#define SCHED_THREADS_MAX   4
 
 #define OS_FLAG_WAIT_MSG    0x0100
 

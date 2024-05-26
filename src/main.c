@@ -10,10 +10,11 @@
 #include "analog_stick.h"
 #include "o_allocator.h"
 
-
 #include "button_tests.h"
 #include "game_tetris.h"
 #include "display.h"
+#include "scoreboard.h"
+
 
 void __attribute__ ((noinline)) delay(uint32_t delay)
 {
@@ -32,16 +33,20 @@ int main(void)
 
     P6DIR |= 0x01;
 
+
     scheduler_init();
     timerInit();
+
+    ep_init();
+
 
     disp_init();
     stick_init();
     buttons_init();
+    scoreboard_init();
 
 //    button_test_init();
     tetris_init();
-
 
     while(1)
     {

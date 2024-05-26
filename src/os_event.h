@@ -18,6 +18,7 @@ typedef enum event_e{
     E_TIMER,
     E_BUTTON,
     E_STICK_UPDATE,
+    E_SCORE_1UP,
 }event_t;
 
 typedef struct os_event_s{

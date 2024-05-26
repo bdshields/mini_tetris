@@ -29,3 +29,8 @@ void ao_cons(ao_t *me, state_handler initial_state)
     me->task = sched_thread_start(ao_task, me, me->stack, AO_STACK_SIZE);
 
 }
+
+thread_t ao_getTask(ao_t *me)
+{
+    return me->task;
+}

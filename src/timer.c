@@ -84,6 +84,9 @@ void timer_set(uint32_t value)
 }
 
 __attribute__((critical))
+/**
+ * Returns milliseconds
+ */
 uint32_t timer_get_value(void)
 {
     return timerVal;

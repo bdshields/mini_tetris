@@ -180,6 +180,11 @@ thread_t sched_thread_start(thread_func function, void *context, uint16_t *stack
             return (thread_t)(sched_threads + counter);
         }
     }
+    while(1)
+    {
+        // ran out of threads
+        // block until fixed
+    }
     return NULL;
 }
 

@@ -16,6 +16,8 @@ typedef struct evt_sub_s{
     thread_t thread[];
 }evt_sub_t;
 
+// Declare an event subscription service
+// _size : maximum number of subscribers
 #define DECLARE_EVT_SUB(_name, _size) static evt_sub_t _name={.size = _size, .thread[_size]={0}}
 
 void evt_sub_init(evt_sub_t *subs);
